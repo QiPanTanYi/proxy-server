@@ -1,0 +1,29 @@
+# npx prettier --write .
+/dist/*
+/node_modules/**
+**/*.svg
+/public/*
+# Ignore all .json files
+**/*.json
+
+# Ignore all .md files
+**/*.md
+
+# Ignore .eslintignore and .prettierignore files
+.eslintignore
+.prettierignore
+.gitignore
+.prettierrc
+
+# Ignore SVG files
+**/*.svg
+
+# Node.js configuration files
+package.json
+package-lock.json
+
+# HTML files
+*.html
+
+# CSS files
+*.css

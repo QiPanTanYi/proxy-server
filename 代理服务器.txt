@@ -1,0 +1,9 @@
+nest new proxy-server
+
+npm install axios @nestjs/common http-proxy-middleware
+
+nest generate module proxy
+
+nest generate service proxy
+
+nest generate controller proxy

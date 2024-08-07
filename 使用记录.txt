@@ -1,0 +1,10 @@
+npm install -g @nestjs/cli
+cnpm install -save axios
+nest new 项目名称
+npm run start
+nest generate controller hello
+避免误报错：npx eslint --fix . --ext .ts,.tsx  （同npm run lint -- --fix）
+创建路由：nest generate controller 路由名字
+Prettier 和 ESLint 自动化格式代码
+npx prettier --write .
+npm run lint -- --fix

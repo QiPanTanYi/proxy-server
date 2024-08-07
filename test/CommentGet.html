@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>调用接口</title>
+    <link
+      rel="icon"
+      href="https://qipantanyi.github.io/Favorites/image/favicon.ico"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        //------------------------------------------
+        $("#TestButton").click(function () {
+          $.ajax({
+            url: "http://localhost:3500/api/v1/get_lw_dict/phonetic",
+            // url: "http://localhost:3500/api/v1/sound_of_a_single_word/will",
+            // url: "http://localhost:3500/api/v1/get_user_avatar/",
+            type: "GET",
+            headers: {
+          "jwtString": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTQ0MTk4MjksInZlcnNpb24iOiI5YzZiMDJkYi1hZGUyLTQzZmQtODBiNy03M2EyMmYyNzkwMmIifQ.F37vYmsYPZ1fAAgdUBCWgpnHnOQYkE7LV7OEII6aK10"
+      },
+            success: function (response) {
+              var responseString = JSON.stringify(response, null, 2);
+              $("#result").val(responseString);
+            },
+            error: function (xhr, status, error) {
+              $("#result").val("调用接口失败：" + error);
+            },
+          });
+        });
+
+        //------------------------------------------
+      });
+    </script>
+  </head>
+  <body>
+
+    <button id="TestButton">跨域测试</button>
+
+    <textarea id="result" rows="40" cols="50"></textarea>
+  </body>
+</html>
+<link rel="stylesheet" href="./test.css">

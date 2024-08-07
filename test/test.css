@@ -1,0 +1,25 @@
+  /* 设置整个页面使用 Flexbox 布局 */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* 按钮和文本区域样式调整 */
+  button,
+  textarea {
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 链接样式调整 */
+  a {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 16px;
+  }

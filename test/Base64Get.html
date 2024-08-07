@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>调用接口</title>
+  <link rel="icon" href="https://qipantanyi.github.io/Favorites/image/favicon.ico" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#TestButton").click(function () {
+        $.ajax({
+          url: "http://localhost:3500/api/v1/get_user_avatar/",
+          type: "GET",
+          headers: {
+            // 'Content-Type': 'application/json',
+            'jwtString': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTQ1ODk0MjMsInZlcnNpb24iOiJhNDI4ZGUwNC02YzZlLTQ0Y2ItOGRhZS05MTg5ZjVmN2E1MzIifQ.uyDyfv0CpKPDuDHf45WmlW3PpBBT6z7fEKlBR_Njh04',
+            'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTQ1ODk0MjMsInZlcnNpb24iOiJhNDI4ZGUwNC02YzZlLTQ0Y2ItOGRhZS05MTg5ZjVmN2E1MzIifQ.uyDyfv0CpKPDuDHf45WmlW3PpBBT6z7fEKlBR_Njh04',
+          },
+          success: function (response) {
+            // 成功接收到响应后的处理
+            console.log('response',response)
+            var responseBase64 = response.file_base64_string; // 这里假设响应是 base64 编码的数据
+            var imageType = response.file_type;
+            // 可以根据需要处理响应数据，比如显示图片：
+            var imgHtml = '<img src="data:image/' + imageType + ';base64,' + responseBase64 + '" />';
+            $("#result").html(imgHtml);
+          },
+          error: function (xhr, status, error) {
+            // 请求失败时的处理
+            $("#result").val("调用接口失败：" + error);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="TestButton">跨域测试</button>
+  <div id="result"></div> <!-- 修改为 div 元素，用于显示图片或其他内容 -->
+</body>
+</html>
+<link rel="stylesheet" href="./test.css">
