@@ -1,5 +1,5 @@
 ```txt
-first-project/
+proxy-server/
 │
 ├── dist
 ├── node_modules
